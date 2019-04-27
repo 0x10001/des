@@ -4,7 +4,7 @@
 import sys
 from setuptools import setup
 
-version = "1.0.4"
+version = "1.0.5"
 
 description = (
     "A pure Python implementation for the famous DES algorithm"
@@ -15,8 +15,7 @@ if sys.version_info < (3, ):
 else:
     kw = {"encoding": "utf-8"}
 
-with open("README.md", **kw) as f:
-    long_description = f.read()
+long_description = open("README.md", **kw).read()
 
 
 classifiers = [

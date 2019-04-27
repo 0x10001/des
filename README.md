@@ -48,12 +48,12 @@ key0.encrypt(b"any long message", initial=b"\0"*8)  # same as above
 
 The *DES* algorithm requires the message to be of any length that is a multiple of 8.
 By default, the length of the message to encrypt / decrypt is assured by users.
-You may choose to turn on *PKCS5 Padding Mode*(by passing the argument `padding` with a TRUTHY value), telling Python to do thg padding before encryption for you.
+You may choose to turn on *PKCS5 Padding Mode*(by passing the argument `padding` with a TRUTHY value), telling Python to do the padding before encryption for you.
 ```python
-key0.encrypt(b"abc")  # -> b"%\xd1KU\x8b_A\xa6"
+key0.encrypt(b"abc", padding=True)  # -> b"%\xd1KU\x8b_A\xa6"
 ```
 
 While in decryption with *PKCS5 Padding*, the length of the message is still required to be a multiple of 8. But after decryption, Python will throw the padding characters away. 
 ```python
-key0.decrypt(b"%\xd1KU\x8b_A\xa6")  # -> b"abc"
+key0.decrypt(b"%\xd1KU\x8b_A\xa6", padding=True)  # -> b"abc"
 ```
