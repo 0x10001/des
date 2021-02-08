@@ -57,3 +57,6 @@ While in decryption with *PKCS5 Padding*, the length of the message is still req
 ```python
 key0.decrypt(b"%\xd1KU\x8b_A\xa6", padding=True)  # -> b"abc"
 ```
+
+## Note
+Because DES keys are 56 bits and the input key to this algorithm is 8, 16 or 24 bytes, this implementation ignores the least significant bit of each key byte.
