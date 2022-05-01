@@ -90,7 +90,7 @@ def guard_message(message, padding, encryption):
     assert isinstance(message, bytes), "The message should be bytes"
     length = len(message)
     if encryption and padding:
-        return message.ljust(length + 8 >> 3 << 3, bytes((8 - (length & 7), )))
+        return message.ljust(length + 8 >> 3 << 3, chr(8 - (length & 7)).encode())
 
     assert length & 7 == 0, (
         "The length of the message should be divisible by 8"
